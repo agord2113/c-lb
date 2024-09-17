@@ -1,30 +1,28 @@
-#include <iostream> // Include the input/output library to use cout and cin
-#include <iomanip>  // Include the formatting library, although it's not used here
+#include <iostream> 
+#include <iomanip>  
 
-using namespace std; // Allows using standard elements without the std:: prefix
+using namespace std; 
 
 int main() { // Main function of the program
-    // Declare variables to store the four parts of an IP address
+   
     int part1, part2, part3, part4;
 
-    // Prompt the user to enter four numbers
+   
     cout << "Enter four numbers (each between 1 and 255): ";
 
-    // Read the four numbers entered by the user
     cin >> part1 >> part2 >> part3 >> part4;
 
-    // Check if all entered numbers are in the range from 1 to 255
     if ((part1 >= 1 && part1 <= 255) &&
         (part2 >= 1 && part2 <= 255) &&
         (part3 >= 1 && part3 <= 255) &&
         (part4 >= 1 && part4 <= 255)) {
 
-        // If all numbers are valid, print them as an IP address, separated by dots
+       
         cout << part1 << '.' << part2 << '.' << part3 << '.' << part4 << endl;
     } else {
-        // If at least one number does not meet the condition, print an error message
+       
         cout << "Invalid input. Each number must be between 1 and 255." << endl;
     }
 
-    return 0; // Return 0, indicating successful program completion
+    return 0; 
 }
