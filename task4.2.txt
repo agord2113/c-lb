@@ -1,0 +1,35 @@
+#include <iostream> // Include the input/output library to use cout and cin
+#include <iomanip> // Include the manipulation library to set output precision
+
+using namespace std; // Allows using elements from the standard library without the std:: prefix
+
+int main() { // Main function of the program
+    // Declare five double variables to store the entered values
+    double value1, value2, value3, value4, value5;
+
+    // Prompt the user to enter five values
+    cout << "Enter five values: ";
+
+    // Read five values entered by the user and store them in corresponding variables
+    cin >> value1 >> value2 >> value3 >> value4 >> value5;
+
+    // Set fixed-point notation for floating-point numbers
+    cout << fixed;
+
+    // Output value1 with one decimal place
+    cout << setprecision(1) << value1 << endl;
+
+    // Output value2 with two decimal places
+    cout << setprecision(2) << value2 << endl;
+
+    // Output value3 with six decimal places
+    cout << setprecision(6) << value3 << endl;
+
+    // Output value4 with two decimal places (rounded)
+    cout << setprecision(2) << value4 << endl;
+
+    // Output value5 as an integer by casting it to int to remove the fractional part
+    cout << static_cast<int>(value5) << endl;
+
+    return 0; // Return 0 to indicate successful program termination
+}

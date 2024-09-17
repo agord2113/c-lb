@@ -1,0 +1,23 @@
+#include <iostream> // Include the input/output library to use cout and cin
+using namespace std; // Allows using elements from the standard library without the std:: prefix
+
+int main(void) { // Entry point of the program
+    bool answer; // Declare a boolean variable 'answer' to store the result of the condition
+    int value; // Declare an integer variable 'value' to store the entered value
+
+    cout << "Enter a value: "; // Prompt the user to enter a value
+    cin >> value; // Read the value entered by the user and store it in the 'value' variable
+
+    // Evaluate the complex condition and assign the result (true or false) to the 'answer' variable
+    answer = (value >= 0 && value < 10) || // First condition: value must be in the range from 0 to 9 inclusive
+               ((value * 2 < 20) && (value - 2 > -2)) || // Second condition: (value * 2 < 20) and (value - 2 > -2)
+               ((value - 1 > 1) && (value / 2 < 10)) || // Third condition: (value - 1 > 1) and (value / 2 < 10)
+               (value == 111); // Fourth condition: value must be exactly 111
+
+    // Output the result based on the boolean variable 'answer'
+    cout << (answer ? "THAT'S TRUE :)" : "THAT'S NOT TRUE :(") << endl;
+    // If 'answer' is true, output "THAT'S TRUE :)"
+    // If 'answer' is false, output "THAT'S NOT TRUE :("
+
+    return 0; // Return 0 to indicate that the program has finished successfully
+}

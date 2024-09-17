@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+    double x, y;
+    std::cout << "ENTER COORDINATES (x y): ";
+    std::cin >> x >> y;
+
+    if (abs(x) <= 1 && abs(y) <= 1) {
+        std::cout << "IN THE AREA!" << std::endl;
+    } else {
+        std::cout << "NOT IN THE AREA!" << std::endl;
+    }
+
+    return 0;
+}

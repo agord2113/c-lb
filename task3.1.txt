@@ -1,0 +1,24 @@
+#include <iostream>
+
+int countDigitsGreaterThanFive(int number) {
+    int count = 0;
+    while (number > 0) {
+        int digit = number % 10;
+        if (digit > 5) {
+            count++;
+        }
+        number /= 10;
+    }
+    return count;
+}
+
+int main() {
+    int N;
+    std::cout << "Enter a positive number: ";
+    std::cin >> N;
+
+    int result = countDigitsGreaterThanFive(N);
+    std::cout << "Number of digits greater than 5: " << result << std::endl;
+
+    return 0;
+}

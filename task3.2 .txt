@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    int weekNumber;
+
+    // Виводимо запит на введення номера тижня
+    std::cout << "Enter the week number (1-52): ";
+    std::cin >> weekNumber;
+
+    // Перевіряємо, чи введений номер тижня дійсний
+    if (weekNumber >= 1 && weekNumber <= 52) {
+        // Виводимо назву тижня двома мовами
+        std::cout << "Week " << weekNumber << " in English: Week " << weekNumber << std::endl;
+        std::cout << "Week " << weekNumber << " in Ukrainian: Тиждень " << weekNumber << std::endl;
+    } else {
+        std::cout << "Invalid week number. Please enter a number between 1 and 52." << std::endl;
+    }
+
+    return 0;
+}
