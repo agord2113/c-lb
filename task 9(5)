@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+#include <limits.h>
+
+int main() {
+    std::vector<int> arr = {3, 8, 1, 7, 5, 10, 2}; // приклад масиву різних чисел
+
+    // Ініціалізуємо дві змінні для збереження найбільшого і другого за величиною елементів
+    int max = INT_MIN;
+    int second_max = INT_MIN;
+
+    // Пошук найбільшого і другого за величиною елементів
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] > max) {
+            second_max = max;  // оновлюємо другий за величиною
+            max = arr[i];      // оновлюємо найбільший
+        } else if (arr[i] > second_max) {
+            second_max = arr[i]; // оновлюємо другий за величиною, якщо це не max
+        }
+    }
+
+    // Виведення результату
+    std::cout << "Другий за величиною елемент: " << second_max << std::endl;
+
+    return 0;
+}
