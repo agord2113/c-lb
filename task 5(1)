@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath> // для використання sqrt
+
+using namespace std;
+
+int main() {
+    double x, y;
+
+    cout << "Введіть значення x: ";
+    cin >> x;
+
+    // Перевіряємо умови визначеності виразу: x - 7 >= 0
+    if (x >= 7) {
+        y = 8 + sqrt(x - 7) / (x + 5);
+        cout << "y = " << y << endl;
+    } else {
+        cout << "Помилка: підкореневий вираз повинен бути >= 0." << endl;
+    }
+
+    return 0;
+}
