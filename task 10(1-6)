@@ -1,0 +1,196 @@
+1)
+#include <iostream>
+#include <vector>
+
+int main() {
+    const int m = 4, n = 3; // розмір масиву
+    int arr[m][n] = {
+        {3, 8, 1},
+        {4, 6, 9},
+        {2, 5, 7},
+        {10, 12, 14}
+    };
+
+    // Підрахунок парних чисел у кожному рядку
+    for (int i = 0; i < m; i++) {
+        int even_count = 0; // лічильник парних чисел
+        for (int j = 0; j < n; j++) {
+            if (arr[i][j] % 2 == 0) {
+                even_count++;
+            }
+        }
+        std::cout << "Кількість парних чисел у рядку " << i + 1 << ": " << even_count << std::endl;
+    }
+
+    return 0;
+}
+
+
+
+
+2)
+#include <iostream>
+#include <vector>
+
+int main() {
+    const int m = 6, n = 4; // розмір масиву
+    int arr[m][n] = {
+        {3, 8, 1, 4},
+        {4, 6, 9, 2},
+        {2, 5, 7, 10},
+        {10, 12, 14, 3},
+        {1, 2, 4, 6},
+        {7, 8, 5, 0}
+    };
+
+    // Підрахунок парних чисел у кожному стовпчику
+    for (int j = 0; j < n; j++) {
+        int even_count = 0; // лічильник парних чисел у стовпчику
+        for (int i = 0; i < m; i++) {
+            if (arr[i][j] % 2 == 0) {
+                even_count++;
+            }
+        }
+        std::cout << "Кількість парних чисел у стовпчику " << j + 1 << ": " << even_count << std::endl;
+    }
+
+    return 0;
+}
+
+
+
+3)
+
+#include <iostream>
+#include <vector>
+
+int main() {
+    const int m = 5, n = 7; // розмір масиву
+    int arr[m][n] = {
+        {3, 8, 1, 4, 5, 2, 7},
+        {6, 2, 9, 0, 3, 1, 8},
+        {4, 7, 2, 5, 6, 3, 0},
+        {1, 6, 8, 4, 2, 7, 3},
+        {5, 0, 3, 9, 1, 8, 4}
+    };
+
+    // Обчислення суми елементів кожного рядка
+    for (int i = 0; i < m; i++) {
+        int row_sum = 0; // змінна для суми елементів рядка
+        for (int j = 0; j < n; j++) {
+            row_sum += arr[i][j];
+        }
+        std::cout << "Сума елементів у рядку " << i + 1 << ": " << row_sum << std::endl;
+    }
+
+    return 0;
+}
+
+
+
+4)
+  #include <iostream>
+#include <vector>
+
+int main() {
+    const int m = 4, n = 6; // розмір масиву
+    int arr[m][n] = {
+        {3, 8, 1, 4, 5, 2},
+        {6, 2, 9, 0, 3, 1},
+        {4, 7, 2, 5, 6, 3},
+        {1, 6, 8, 4, 2, 7}
+    };
+
+    // Обчислення суми елементів кожного стовпчика
+    for (int j = 0; j < n; j++) {
+        int column_sum = 0; // змінна для суми елементів стовпчика
+        for (int i = 0; i < m; i++) {
+            column_sum += arr[i][j];
+        }
+        std::cout << "Сума елементів у стовпчику " << j + 1 << ": " << column_sum << std::endl;
+    }
+
+    return 0;
+}
+
+
+
+
+5)
+  #include <iostream>
+#include <vector>
+
+int main() {
+    const int m = 3, n = 4; // розмір масиву
+    int arr[m][n] = {
+        {3, 8, 1, 4},
+        {6, 2, 9, 0},
+        {4, 7, 5, 3}
+    };
+
+    // Ініціалізація змінних для збереження максимального значення та його позиції
+    int max_value = arr[0][0];
+    int max_row = 0;
+    int max_col = 0;
+
+    // Пошук максимального елемента та його позиції
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (arr[i][j] > max_value) {
+                max_value = arr[i][j];
+                max_row = i;
+                max_col = j;
+            }
+        }
+    }
+
+    // Виведення результату
+    std::cout << "Максимальний елемент: " << max_value << std::endl;
+    std::cout << "Розташування: рядок " << max_row + 1 << ", стовпчик " << max_col + 1 << std::endl;
+
+    return 0;
+}
+
+
+6)
+
+   #include <iostream>
+#include <vector>
+#include <climits>
+
+int main() {
+    const int m = 4, n = 7; // розмір масиву
+    int arr[m][n] = {
+        {3, 8, 1, 4, 5, 2, 7},
+        {6, 2, 9, 0, 3, 1, 8},
+        {4, 7, 2, 5, 6, 3, 0},
+        {10, 12, 14, 3, 1, 7, 6}
+    };
+
+    // Ініціалізація змінних для збереження мінімального значення та його позиції
+    int min_value = INT_MAX;
+    int min_row = 0;
+    int min_col = 0;
+
+    // Пошук мінімального елемента та його позиції
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (arr[i][j] < min_value) {
+                min_value = arr[i][j];
+                min_row = i;
+                min_col = j;
+            }
+        }
+    }
+
+    // Виведення результату
+    std::cout << "Мінімальний елемент: " << min_value << std::endl;
+    std::cout << "Розташування: рядок " << min_row + 1 << ", стовпчик " << min_col + 1 << std::endl;
+
+    return 0;
+}
+
+  
+
+
+
