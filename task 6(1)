@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int c0, steps = 0;
+
+    // Input the initial value
+    cout << "Enter a natural number: ";
+    cin >> c0;
+
+    // Check if input is valid
+    if (c0 <= 0) {
+        cout << "Please enter a non-negative and non-zero integer." << endl;
+        return 1;
+    }
+
+    // Perform the Collatz sequence
+    while (c0 != 1) {
+        cout << c0 << " ";  // Output the current value of c0
+        if (c0 % 2 == 0) {
+            c0 /= 2;  // If c0 is even, divide by 2
+        } else {
+            c0 = 3 * c0 + 1;  // If c0 is odd, apply 3 * c0 + 1
+        }
+        steps++;  // Increment the step count
+    }
+
+    // Output the last value (1) and total steps
+    cout << c0 << endl;
+    cout << "steps = " << steps << endl;
+
+    return 0;
+}
