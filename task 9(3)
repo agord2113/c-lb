@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> arr = {3, 8, 1, 7, 5, 10, 2}; // приклад масиву різних чисел
+
+    // Знаходимо індекси найбільшого і найменшого елементів
+    int max_index = 0;
+    int min_index = 0;
+
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] > arr[max_index]) {
+            max_index = i;
+        }
+        if (arr[i] < arr[min_index]) {
+            min_index = i;
+        }
+    }
+
+    // Міняємо місцями найбільший і найменший елементи
+    std::swap(arr[max_index], arr[min_index]);
+
+    // Виводимо змінений масив
+    std::cout << "Масив після заміни: ";
+    for (int i = 0; i < arr.size(); i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
