@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+// Оголошення структури Date
+struct Date {
+    int hours;   // Години
+    int minutes; // Хвилини
+
+    // Конструктор за замовчуванням, щоб ініціалізувати час нулями
+    Date(int h = 0, int m = 0) : hours(h), minutes(m) {}
+};
+
+// Функція для коригування часу, якщо хвилини перевищують 60 або години - 24
+void adjustTime(int& hours, int& minutes) {
+    // Коригуємо хвилини
+    while (minutes >= 60) {
+        minutes -= 60;
+        hours++;
+    }
+
+    // Коригуємо години, щоб не перевищували 24
+    while (hours >= 24) {
+        hours -= 24;
+    }
+}
+
+// Функція для обчислення різниці між двома часами
+Date calculateDuration(const Date& start, const Date& end) {
+    Date duration;
+
+    // Перетворюємо час в хвилини для простоти обчислень
+    int startInMinutes = start.hours * 60 + start.minutes;
+    int endInMinutes = end.hours * 60 + end.minutes;
+
+    // Якщо час завершення менший за час початку, то це означає, що подія завершилася на наступний день
+    if (endInMinutes < startInMinutes) {
+        endInMinutes += 24 * 60; // Додаємо 24 години (1440 хвилин)
+    }
+
+    // Різниця в хвилинах
+    int durationInMinutes = endInMinutes - startInMinutes;
+    duration.hours = durationInMinutes / 60;
+    duration.minutes = durationInMinutes % 60;
+
+    return duration;
+}
+
+int main() {
+    Date startTime, endTime;
+
+    // Введення часу початку події
+    cout << "Введіть час початку події (години хвилини): ";
+    cin >> startTime.hours >> startTime.minutes;
+
+    // Введення часу завершення події
+    cout << "Введіть час завершення події (години хвилини): ";
+    cin >> endTime.hours >> endTime.minutes;
+
+    // Перевірка введених значень на коректність
+    if (startTime.hours < 0 || startTime.hours >= 24 || startTime.minutes < 0 || startTime.minutes >= 60 ||
+        endTime.hours < 0 || endTime.hours >= 24 || endTime.minutes < 0 || endTime.minutes >= 60) {
+        cout << "Некоректний ввід часу!" << endl;
+        return 1;
+    }
+
+    // Обчислення тривалості події
+    Date duration = calculateDuration(startTime, endTime);
+
+    // Виведення результату
+    cout << "Тривалість події: " << duration.hours << ":" << (duration.minutes < 10 ? "0" : "") << duration.minutes << endl;
+
+    return 0;
+}
