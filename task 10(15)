@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    const int m = 3, n = 3; // розмір масиву
+    int arr[m][n] = {
+        {3, 8, 1},
+        {4, 6, 9},
+        {2, 5, 7}
+    };
+
+    int main_diagonal_sum = 0; // сума головної діагоналі
+    int secondary_diagonal_sum = 0; // сума побічної діагоналі
+
+    // Обчислення суми по головній і побічній діагоналям
+    for (int i = 0; i < m; i++) {
+        main_diagonal_sum += arr[i][i]; // елементи головної діагоналі
+        secondary_diagonal_sum += arr[i][n - i - 1]; // елементи побічної діагоналі
+    }
+
+    // Виведення результатів
+    std::cout << "Сума чисел по головній діагоналі: " << main_diagonal_sum << std::endl;
+    std::cout << "Сума чисел по побічній діагоналі: " << secondary_diagonal_sum << std::endl;
+
+    return 0;
+}
