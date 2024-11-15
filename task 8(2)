@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> arr = {-3, 5, -1, 7, -4, 10, -2, 8}; // приклад масиву
+
+    // Знаходимо індекс першого максимального елементу
+    int max_index = 0;
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] > arr[max_index]) {
+            max_index = i;
+        }
+    }
+
+    // Замінюємо всі від'ємні елементи перед max_index на нулі
+    for (int i = 0; i < max_index; i++) {
+        if (arr[i] < 0) {
+            arr[i] = 0;
+        }
+    }
+
+    // Виводимо змінений масив
+    std::cout << "Масив після заміни: ";
+    for (int i = 0; i < arr.size(); i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
