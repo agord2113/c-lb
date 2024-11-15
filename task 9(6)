@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> arr = {3, 8, 0, 7, 5, 10, 2}; // приклад масиву
+
+    // Пошук першого нульового елемента
+    bool found = false;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] == 0) {
+            std::cout << "Номер першого нульового елемента: " << i << std::endl;
+            found = true;
+            break;
+        }
+    }
+
+    // Якщо нульових елементів немає
+    if (!found) {
+        std::cout << "Масив не містить нульових елементів" << std::endl;
+    }
+
+    return 0;
+}
