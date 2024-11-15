@@ -1,0 +1,27 @@
+#include <iostream>
+#include <algorithm> // для функцій сортування
+
+int main() {
+    const int m = 12;
+    int arr[m] = {5, 3, 8, 1, 9, 12, 4, 7, 2, 6, 10, 11}; // приклад масиву з 12 елементів
+
+    // Сортування за зростанням
+    std::sort(arr, arr + m);
+
+    std::cout << "Масив за зростанням: ";
+    for (int i = 0; i < m; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Сортування за спаданням
+    std::sort(arr, arr + m, std::greater<int>());
+
+    std::cout << "Масив за спаданням: ";
+    for (int i = 0; i < m; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
