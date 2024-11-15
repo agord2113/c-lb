@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+// Оголошення структури Date
+struct Date {
+    int hours;   // Години
+    int minutes; // Хвилини
+};
+
+// Функція для коригування часу (годин і хвилин)
+void adjustTime(int& hours, int& minutes) {
+    // Коригуємо хвилини
+    while (minutes >= 60) {
+        minutes -= 60;
+        hours++;
+    }
+    
+    // Коригуємо години, щоб не перевищували 24
+    while (hours >= 24) {
+        hours -= 24;
+    }
+}
+
+// Основна функція
+int main() {
+    Date time;
+    int addedMinutes;
+    
+    // Введення початкових значень часу
+    cout << "Введіть години: ";
+    cin >> time.hours;
+    cout << "Введіть хвилини: ";
+    cin >> time.minutes;
+    
+    // Перевірка введених значень на коректність
+    if (time.hours < 0 || time.hours >= 24 || time.minutes < 0 || time.minutes >= 60) {
+        cout << "Некоректний ввід часу!" << endl;
+        return 1;
+    }
+
+    // Введення кількості хвилин, на яку потрібно додати час
+    cout << "Введіть кількість хвилин: ";
+    cin >> addedMinutes;
+    
+    // Додаємо хвилини до поточного часу
+    time.minutes += addedMinutes;
+    
+    // Коригуємо час
+    adjustTime(time.hours, time.minutes);
+    
+    // Виведення результату
+    cout << "Новий час: " << time.hours << ":" << (time.minutes < 10 ? "0" : "") << time.minutes << endl;
+    
+    return 0;
+}
