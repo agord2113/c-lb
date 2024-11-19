@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int myNumber = 10;  // Ваш номер по списку
+    int result = myNumber + 5;  // Збільшуємо на 5
+    cout << "Мій номер по списку +5: " << result << endl;
+    return 0;
+}
