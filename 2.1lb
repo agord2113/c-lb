@@ -1,0 +1,21 @@
+#include <cmath>
+#include <iostream>
+
+double calculateY(double x) {
+    if (x >= 0) {
+        return exp(-x) * tan(1.0 / (x * x + 8.2));
+    } else {
+        return (0.32 * x + 2.5) / (x * x + 3);
+    }
+}
+
+int main() {
+    double x;
+    std::cout << "Enter x: ";
+    std::cin >> x;
+    
+    double y = calculateY(x);
+    std::cout << "Y = " << y << std::endl;
+
+    return 0;
+}
